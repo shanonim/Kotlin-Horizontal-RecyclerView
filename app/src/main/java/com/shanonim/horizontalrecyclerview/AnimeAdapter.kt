@@ -4,7 +4,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 /**
  * Created by shinohara-hiromitsu on 2017/06/30.
@@ -20,6 +22,9 @@ class AnimeAdapter(val items: List<Anime>, val itemClick: (Anime) -> Unit) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.setUp(items[position])
+        holder.button.setOnClickListener {
+            Toast.makeText(holder.itemView.context, "tapped OK", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -27,12 +32,11 @@ class AnimeAdapter(val items: List<Anime>, val itemClick: (Anime) -> Unit) :
     }
 
     class ViewHolder(view: View, val itemClick: (Anime) -> Unit) : RecyclerView.ViewHolder(view) {
-        private val textAnime = view.findViewById(R.id.text_anime) as TextView
-        private val textStatus = view.findViewById(R.id.text_status) as TextView
+        val textAnime = view.findViewById(R.id.text_anime) as TextView
+        val button: Button = view.findViewById(R.id.button_ok) as Button
 
         fun setUp(item: Anime) {
             textAnime.text = item.name
-            textStatus.text = item.status.toString()
             itemView.setOnClickListener { itemClick(item) }
         }
     }

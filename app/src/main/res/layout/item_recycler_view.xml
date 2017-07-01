@@ -4,20 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp">
 
     <TextView
         android:id="@+id/text_anime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Anime" />
-
-    <TextView
-        android:id="@+id/text_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        tools:text="Status" />
 
     <Button
         android:id="@+id/button_ok"
@@ -27,9 +22,10 @@
         android:text="OK" />
 
     <View
-        android:background="@android:color/black"
-        android:alpha="0.1"
         android:layout_width="match_parent"
-        android:layout_height="1dp" />
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:alpha="0.1"
+        android:background="@android:color/black" />
 
 </LinearLayout>
