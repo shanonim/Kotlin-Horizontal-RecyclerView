@@ -8,10 +8,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
-/**
- * Created by shinohara-hiromitsu on 2017/06/30.
- */
-
 class AnimeAdapter(val items: List<Anime>, val itemClick: (Anime) -> Unit) :
         RecyclerView.Adapter<AnimeAdapter.ViewHolder>() {
 
