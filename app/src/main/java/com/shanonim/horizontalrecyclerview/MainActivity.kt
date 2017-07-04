@@ -15,7 +15,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.recycler_view) as RecyclerView
-        layoutManager = LinearLayoutManager(this)
+        layoutManager = LinearLayoutManager(this).apply {
+            orientation = LinearLayoutManager.HORIZONTAL
+        }
         recyclerView?.layoutManager = layoutManager
 
         val adapter = AnimeAdapter(Anime.list) {
