@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.squareup.picasso.Picasso
 
 class AnimeAdapter(val items: List<Anime>, val itemClick: (Anime) -> Unit) :
         RecyclerView.Adapter<AnimeAdapter.ViewHolder>() {
@@ -29,11 +31,15 @@ class AnimeAdapter(val items: List<Anime>, val itemClick: (Anime) -> Unit) :
 
     class ViewHolder(view: View, val itemClick: (Anime) -> Unit) : RecyclerView.ViewHolder(view) {
         val textAnime = view.findViewById(R.id.text_anime) as TextView
+        val imageAnime = view.findViewById(R.id.image_thumbnail) as ImageView
         val button: Button = view.findViewById(R.id.button_ok) as Button
 
         fun setUp(item: Anime) {
             textAnime.text = item.name
+            Picasso.with(itemView.context).load(createUrl(item.productCode)).into(imageAnime)
             itemView.setOnClickListener { itemClick(item) }
         }
+
+        fun createUrl(productCode: String) = "http://images-jp.amazon.com/images/P/$productCode.09.LZZZZZZZ.jpg"
     }
 }
